@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { siteConfig } from "@/content/site";
-import WorkOrderModal from "@/components/ui/WorkOrderModal";
 
 const navLinks = [
   { label: "Home",         href: "/" },
@@ -88,7 +87,9 @@ export default function GlassNav() {
               <circle cx="12" cy="7" r="4"/>
             </svg>
           </a>
-          <WorkOrderModal />
+          <Link href="/new-customer" className="btn btn-primary">
+            New customer
+          </Link>
 
           {/* Hamburger */}
           <button
