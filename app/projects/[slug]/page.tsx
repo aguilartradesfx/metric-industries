@@ -36,76 +36,31 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section style={{ padding: 0, minHeight: "72vh", position: "relative", overflow: "hidden" }}>
-        <Image
-          src={svc.image.url}
-          alt={svc.image.alt}
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center", zIndex: 0 }}
-          sizes="100vw"
-        />
-
-        {/* Overlay */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 1,
-            background:
-              "linear-gradient(90deg, rgba(251,248,242,0.96) 0%, rgba(251,248,242,0.80) 40%, rgba(251,248,242,0.28) 68%, transparent 85%)",
-          }}
-        />
-
-        {/* Bottom fade */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "30%",
-            background: "linear-gradient(to top, var(--cream-50), transparent)",
-            zIndex: 2,
-          }}
-        />
-
-        {/* Content */}
-        <div
-          className="wrap"
-          style={{
-            position: "relative",
-            zIndex: 3,
-            minHeight: "72vh",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              maxWidth: 580,
-              paddingTop: "clamp(120px, 16vh, 180px)",
-              paddingBottom: "clamp(80px, 10vh, 120px)",
-            }}
-          >
-            <p className="eyebrow">{svc.number} — Service</p>
-            <h1>{svc.title}</h1>
-            <p
-              className="lead"
-              style={{
-                maxWidth: 460,
-                fontStyle: "italic",
-                color: "var(--clay-500)",
-                marginBottom: 40,
-              }}
-            >
-              {svc.subtitle}
-            </p>
-            <Link href="/contact" className="btn btn-primary">
-              {svc.cta} →
-            </Link>
+      <section style={{ paddingTop: "clamp(120px,16vh,180px)", paddingBottom: "clamp(56px,7vw,96px)" }}>
+        <div className="wrap">
+          <div className="g-2" style={{ gap: "clamp(40px,5vw,80px)", alignItems: "center" }}>
+            {/* Text */}
+            <div>
+              <p className="eyebrow">{svc.number} — Service</p>
+              <h1 style={{ fontSize: "clamp(36px,4.5vw,64px)" }}>{svc.title}</h1>
+              <p className="lead" style={{ maxWidth: 460, fontStyle: "italic", color: "var(--clay-500)", marginBottom: 40 }}>
+                {svc.subtitle}
+              </p>
+              <Link href="/contact" className="btn btn-primary">
+                {svc.cta} →
+              </Link>
+            </div>
+            {/* Image */}
+            <div className="img-frame" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src={svc.image.url}
+                alt={svc.image.alt}
+                fill
+                priority
+                style={{ objectFit: "cover" }}
+                sizes="(max-width:900px) 100vw, 640px"
+              />
+            </div>
           </div>
         </div>
       </section>

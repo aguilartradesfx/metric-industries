@@ -53,6 +53,11 @@ export const services: Service[] = [
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643400/11_ib3whj.jpg",
       alt: "Technicians resurfacing a bathtub and kitchen countertop",
     },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643394/3_wol2qa.jpg",
+      alt: "Restored apartment kitchen ready for a new tenant",
+      headline: "Renewed, not replaced.",
+    },
     description:
       "Restore countertops, tubs, tiles, and cabinets to look-new condition — no replacement required.",
   },
@@ -126,6 +131,11 @@ export const services: Service[] = [
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643404/14_q6c80m.jpg",
       alt: "Deep carpet cleaning service in a bedroom",
     },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643393/2-2_jugrd6.jpg",
+      alt: "Clean apartment living room ready for new tenants",
+      headline: "No trace of the last tenant.",
+    },
     description:
       "Deep extraction cleaning that removes stains, pet odors, and residue — no replacement quote needed.",
   },
@@ -145,6 +155,11 @@ export const services: Service[] = [
     image: {
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643404/15_iyyeor.jpg",
       alt: "Technician cleaning an air duct system",
+    },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643408/18_ggnr6r.jpg",
+      alt: "Family settled in a clean, fresh apartment",
+      headline: "Fresh air from day one.",
     },
     description:
       "Full AC duct cleaning — remove dust, mold, and allergens so tenants breathe clean from day one.",
@@ -167,6 +182,11 @@ export const services: Service[] = [
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643406/16_gyigai.jpg",
       alt: "Team performing emergency water extraction",
     },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643394/4-2_kjbows.jpg",
+      alt: "Restored apartment after water damage remediation",
+      headline: "Dry before the damage sets in.",
+    },
     description:
       "24/7 emergency water extraction — fast response, padding removal, enzyme treatment, and full dry-down.",
   },
@@ -188,6 +208,11 @@ export const services: Service[] = [
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778708758/hf_20260513_213736_89c7c174-01a4-4e11-9132-89de398e27a1_hjfiqn.jpg",
       alt: "Remediation crew treating mold-affected surfaces in an apartment",
     },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643415/22_zcdulg.jpg",
+      alt: "Residents moving into a clean, remediated apartment",
+      headline: "Clean, sealed, ready to lease.",
+    },
     description:
       "Surface treatment, drywall repair, and anti-microbial sealing — units back in leasing inventory fast.",
   },
@@ -207,6 +232,11 @@ export const services: Service[] = [
     image: {
       url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778708759/Layer_0-5_smwhes.jpg",
       alt: "Restoration crew repairing fire-damaged walls and ceiling",
+    },
+    lifestyleImage: {
+      url: "https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643415/23_bhkost.jpg",
+      alt: "Freshly restored apartment ready for a new resident",
+      headline: "Restored from the ground up.",
     },
     description:
       "Full fire and smoke damage cleanup, repair, and repaint — back on the rental market as fast as possible.",
