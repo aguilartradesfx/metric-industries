@@ -844,12 +844,20 @@ section { padding: var(--section) 0; position: relative; }
     order: 0;
     flex-shrink: 0;
   }
+  /* Smooth fade from image into page background */
+  .hero-img-mobile::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 45%;
+    background: linear-gradient(to bottom, transparent 0%, var(--cream-50) 100%);
+    z-index: 1;
+  }
 
-  /* Content sits below the image on cream background */
+  /* Content sits below the image — page background already cream, no box needed */
   .hero-wrap {
     min-height: unset !important;
     align-items: flex-start !important;
-    background: var(--cream-50);
     order: 1;
   }
 
