@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import GlassCard from "@/components/ui/GlassCard";
 import { siteConfig } from "@/content/site";
@@ -43,10 +44,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Cinematic break */}
+      <section style={{ padding: 0, position: "relative", minHeight: "52vh", overflow: "hidden", display: "flex", alignItems: "center" }}>
+        <Image
+          src="https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643408/18_ggnr6r.jpg"
+          alt="Family in a freshly prepared apartment"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          sizes="100vw"
+        />
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg,rgba(30,26,20,0.72) 0%,rgba(30,26,20,0.35) 60%,transparent 100%)" }} />
+        <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "clamp(64px,8vw,112px) var(--gutter)" }}>
+          <p className="eyebrow" style={{ color: "rgba(215,200,175,0.8)" }}>Who we are</p>
+          <h2 style={{ color: "var(--cream-50)", maxWidth: 480, marginBottom: 0 }}>
+            15 years making Houston units <em style={{ color: "var(--sand-300)" }}>move-in ready.</em>
+          </h2>
+        </div>
+      </section>
+
       {/* Story */}
       <section className="sec-band">
         <div className="wrap">
-          <div className="g-2" style={{ gap: "clamp(40px,5vw,80px)", alignItems: "start" }}>
+          <div className="g-2" style={{ gap: "clamp(40px,5vw,80px)", alignItems: "center" }}>
             <div>
               <p className="eyebrow">Our Story</p>
               <h2>Built for the moment a resident moves out.</h2>
@@ -61,6 +80,32 @@ export default function AboutPage() {
                 every trade — painting, flooring, cleaning, restoration — we built Metric to eliminate
                 the chaos of coordinating multiple vendors on a tight turn schedule.
               </p>
+            </div>
+            <div className="img-frame" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643394/3_wol2qa.jpg"
+                alt="Metric Industries team at work"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width:900px) 100vw, 640px"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why choose us */}
+      <section>
+        <div className="wrap">
+          <div className="g-2" style={{ gap: "clamp(40px,5vw,80px)", alignItems: "center" }}>
+            <div className="img-frame" style={{ aspectRatio: "4/3" }}>
+              <Image
+                src="https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643394/4-2_kjbows.jpg"
+                alt="Metric Industries technician"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width:900px) 100vw, 640px"
+              />
             </div>
             <div>
               <p className="eyebrow">Why choose us</p>

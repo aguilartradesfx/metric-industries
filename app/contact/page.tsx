@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import GlassCard from "@/components/ui/GlassCard";
 import { siteConfig } from "@/content/site";
 
@@ -25,6 +26,7 @@ export default function ContactPage() {
       <section className="sec-band">
         <div className="wrap">
           <div className="g-2" style={{ gap: "clamp(40px,5vw,80px)", alignItems: "start" }}>
+
             {/* Contact details */}
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               {[
@@ -66,16 +68,7 @@ export default function ContactPage() {
                       {item.value}
                     </a>
                   ) : (
-                    <p
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "clamp(18px,2vw,26px)",
-                        fontWeight: 500,
-                        color: "var(--ink-900)",
-                        letterSpacing: "-0.01em",
-                        margin: "0 0 6px",
-                      }}
-                    >
+                    <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,2vw,26px)", fontWeight: 500, color: "var(--ink-900)", letterSpacing: "-0.01em", margin: "0 0 6px" }}>
                       {item.value}
                     </p>
                   )}
@@ -94,16 +87,14 @@ export default function ContactPage() {
               </a>
             </div>
 
-            {/* Map */}
-            <div style={{ borderRadius: "var(--r-xl)", overflow: "hidden", boxShadow: "var(--shadow-soft)", height: 480, position: "relative" }}>
-              <iframe
-                src="https://maps.google.com/maps?q=2211+Rayford+Rd+Ste+111,+Spring,+TX+77386&output=embed&z=15"
-                width="100%"
-                height="100%"
-                style={{ border: 0, display: "block" }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Metric Industries location"
+            {/* Photo */}
+            <div className="img-frame" style={{ aspectRatio: "4/3", borderRadius: "var(--r-xl)", overflow: "hidden" }}>
+              <Image
+                src="https://res.cloudinary.com/dm4vljcnv/image/upload/q_auto/f_auto/v1778643393/2-2_jugrd6.jpg"
+                alt="Metric Industries apartment ready for new tenants"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width:900px) 100vw, 640px"
               />
             </div>
           </div>
