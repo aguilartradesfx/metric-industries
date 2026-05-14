@@ -839,16 +839,17 @@ section { padding: var(--section) 0; position: relative; }
     height: auto !important;
   }
 
-  /* Tight gradient — only bottom 30%, heavy toward the edge */
+  /* Subtle gradient — just enough to back the eyebrow + headline */
   .hero-img-mobile::after {
     content: "";
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 30%;
+    height: 36%;
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(251, 248, 242, 0.88) 70%,
+      rgba(251, 248, 242, 0.75) 55%,
+      rgba(251, 248, 242, 0.95) 82%,
       var(--cream-50) 100%
     );
     z-index: 1;
@@ -871,7 +872,7 @@ section { padding: var(--section) 0; position: relative; }
   .hero-inner h1           { margin-bottom: 10px; }
   .hero-desc               { display: none; }
   .hero-cta                { margin-top: 16px !important; }
-  .hero-stats              { margin-top: 14px !important; }
+  .hero-stats              { display: none !important; }
 
   /* Trusted By */
   .trusted-by-inner {
