@@ -108,7 +108,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           HERO + TRUSTED BY — single section, seamless background
           ════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: 0, position: "relative" }}>
+      <section className="hero-section" style={{ padding: 0, position: "relative" }}>
         {/* Desktop image */}
         <div className="hero-img-desktop" style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden" }}>
           <Image

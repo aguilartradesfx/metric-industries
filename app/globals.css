@@ -829,17 +829,41 @@ section { padding: var(--section) 0; position: relative; }
   .hero-overlay-right  { display: none; }
   .hero-overlay-top    { display: none; }
 
-  .hero-wrap  { align-items: flex-end !important; }
+  /* Stack hero vertically: image on top, content below */
+  .hero-section {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Pull image out of absolute positioning so it takes natural space */
+  .hero-img-mobile {
+    position: relative !important;
+    inset: unset !important;
+    width: 100% !important;
+    height: 54vh !important;
+    order: 0;
+    flex-shrink: 0;
+  }
+
+  /* Content sits below the image on cream background */
+  .hero-wrap {
+    min-height: unset !important;
+    align-items: flex-start !important;
+    background: var(--cream-50);
+    order: 1;
+  }
+
   .hero-inner {
-    padding-top: clamp(100px, 16vh, 150px) !important;
-    padding-bottom: clamp(64px, 9vh, 100px) !important;
+    padding-top: 36px !important;
+    padding-bottom: 48px !important;
     max-width: 100% !important;
   }
 
-  /* On mobile give trusted-by its own background so image doesn't bleed through */
+  /* Trusted By continues the cream background */
   .trusted-by-inner {
     background: var(--cream-50);
     padding-top: clamp(32px, 5vw, 56px);
     padding-bottom: clamp(40px, 5vw, 64px);
+    order: 2;
   }
 }
