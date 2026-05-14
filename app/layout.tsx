@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import WarmCreamMesh from "@/components/backgrounds/WarmCreamMesh";
 import GlassNav from "@/components/nav/GlassNav";
 import Footer from "@/components/footer/Footer";
 import FloatingSupport from "@/components/ui/FloatingSupport";
@@ -47,7 +46,6 @@ export default function RootLayout({
       style={{ scrollBehavior: "smooth" }}
     >
       <body style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-        <WarmCreamMesh />
         <GlassNav />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />

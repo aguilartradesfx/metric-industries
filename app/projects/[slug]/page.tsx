@@ -67,7 +67,7 @@ export default async function ServicePage({ params }: Props) {
 
 
       {/* ── Body copy ───────────────────────────────────────────── */}
-      <section>
+      <section className="sec-band">
         <div className="wrap">
           <div className="g-2 pad-l">
             {/* Main text */}
@@ -182,7 +182,7 @@ export default async function ServicePage({ params }: Props) {
 
 
       {/* ── Prev / Next navigation ──────────────────────────────── */}
-      <section>
+      <section className="sec-band">
         <div className="wrap">
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
             {/* Prev */}
