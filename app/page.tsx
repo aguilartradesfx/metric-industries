@@ -140,14 +140,14 @@ export default function HomePage() {
             <h1 style={{ fontSize: "clamp(26px,3vw,46px)", lineHeight: 1.08 }}>
               Built for the <em>moment</em> a resident moves out.
             </h1>
-            <p style={{ fontSize: "clamp(15px,1.3vw,18px)", color: v("--ink-700"), lineHeight: 1.65, maxWidth: 420, marginBottom: 0 }}>
+            <p className="hero-desc" style={{ fontSize: "clamp(15px,1.3vw,18px)", color: v("--ink-700"), lineHeight: 1.65, maxWidth: 420, marginBottom: 0 }}>
               Houston&apos;s go-to partner for turning apartment units around — fast,
               clean, and ready for the next tenant.
             </p>
-            <div style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
+            <div className="hero-cta" style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
               <Link href="/contact" className="btn btn-primary">Create work order →</Link>
             </div>
-            <div style={{ display: "flex", gap: 10, marginTop: 32, flexWrap: "wrap" }}>
+            <div className="hero-stats" style={{ display: "flex", gap: 10, marginTop: 32, flexWrap: "wrap" }}>
               {[{ n: "15", s: "y", l: "In business" }, { n: "9", s: "", l: "Service lines" }, { n: "24/", s: "7", l: "Emergency" }].map((c) => (
                 <GlassCard key={c.l} heavy style={{ padding: "12px 18px", minWidth: 88 }}>
                   <span style={{ fontFamily: v("--font-display"), fontWeight: 500, fontSize: 24, color: v("--ink-900"), letterSpacing: "-0.02em", lineHeight: 1, display: "block" }}>
