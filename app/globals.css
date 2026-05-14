@@ -1,26 +1,845 @@
 @import "tailwindcss";
 
+/* =================================================================
+   METRIC INDUSTRIES — DESIGN TOKENS
+   ================================================================= */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cream palette */
+  --cream-50:  #FBF8F2;
+  --cream-100: #F5EFE4;
+  --cream-200: #EDE3D1;
+  --sand-300:  #D8C8AC;
+  --sand-400:  #C7B591;
+  --clay-500:  #A89274;
+
+  /* Ink */
+  --ink-900: #2E2C28;
+  --ink-700: #4A4843;
+  --ink-500: #6B6862;
+
+  /* Sage — rare accent */
+  --sage-500: #8FA08A;
+  --sage-300: #B6C2B0;
+  --sage-soft: rgba(143, 160, 138, 0.15);
+  --sage-glow: rgba(143, 160, 138, 0.40);
+
+  /* Glass layers */
+  --glass-1:        rgba(255, 252, 245, 0.45);
+  --glass-2:        rgba(255, 252, 245, 0.55);
+  --glass-3:        rgba(255, 252, 245, 0.70);
+  --glass-edge:     rgba(255, 255, 255, 0.55);
+  --glass-edge-dim: rgba(255, 255, 255, 0.10);
+  --glass-inner:    rgba(255, 255, 255, 0.65);
+  --glass-rim:      rgba(168, 146, 116, 0.18);
+
+  /* Shadows */
+  --shadow-soft: 0 30px 80px -20px rgba(80, 60, 30, 0.20);
+  --shadow-glow: 0 50px 120px -30px rgba(80, 60, 30, 0.28);
+  --shadow-warm: 0 10px 30px -10px rgba(168, 146, 116, 0.25);
+
+  /* Radii */
+  --r-sm:   12px;
+  --r-md:   18px;
+  --r-lg:   26px;
+  --r-xl:   36px;
+  --r-pill: 999px;
+
+  /* Spacing */
+  --gutter:   clamp(20px, 4vw, 64px);
+  --section:  clamp(56px, 6vw, 96px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* =================================================================
+   RESET
+   ================================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body, "Plus Jakarta Sans", system-ui, sans-serif);
+  font-weight: 400;
+  color: var(--ink-900);
+  background: var(--cream-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* =================================================================
+   BACKGROUND — 6 orbs + grain + caustics
+   ================================================================= */
+.bg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--cream-50);
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  will-change: transform;
+}
+.orb-1 {
+  width: 70vw; height: 70vw;
+  top: -20vw; left: -15vw;
+  background: radial-gradient(circle, var(--cream-200), transparent 70%);
+  opacity: 0.85;
+  animation: float-1 38s ease-in-out infinite;
+}
+.orb-2 {
+  width: 55vw; height: 55vw;
+  top: 10vw; right: -15vw;
+  background: radial-gradient(circle, var(--sand-300), transparent 70%);
+  opacity: 0.55;
+  animation: float-2 46s ease-in-out infinite;
+}
+.orb-3 {
+  width: 60vw; height: 60vw;
+  bottom: -20vw; left: 10vw;
+  background: radial-gradient(circle, var(--sand-400), transparent 70%);
+  opacity: 0.35;
+  animation: float-3 52s ease-in-out infinite;
+}
+.orb-4 {
+  width: 40vw; height: 40vw;
+  top: 40vw; left: 30vw;
+  background: radial-gradient(circle, var(--cream-100), transparent 70%);
+  opacity: 0.6;
+  animation: float-4 60s ease-in-out infinite;
+}
+.orb-5 {
+  width: 45vw; height: 45vw;
+  bottom: 10vw; right: 5vw;
+  background: radial-gradient(circle, var(--clay-500), transparent 70%);
+  opacity: 0.22;
+  animation: float-5 44s ease-in-out infinite;
+}
+.orb-sage {
+  position: absolute;
+  width: 50vw; height: 50vw;
+  top: 30vw; left: 35vw;
+  background: radial-gradient(circle, var(--sage-500), transparent 70%);
+  border-radius: 50%;
+  filter: blur(180px);
+  opacity: 0.07;
+  animation: float-sage 70s ease-in-out infinite;
+}
+@keyframes float-1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+@keyframes float-2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-50px,40px)} }
+@keyframes float-3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-40px)} }
+@keyframes float-4 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,-30px)} }
+@keyframes float-5 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,-20px)} }
+@keyframes float-sage { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-60px,50px)} }
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.35 0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.caustic {
+  position: fixed;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: screen;
+}
+.caustic-1 {
+  top: 8vh; right: 10vw;
+  background: radial-gradient(circle, rgba(255, 230, 180, 0.6), transparent 60%);
+  animation: caustic-shift 12s ease-in-out infinite;
+}
+.caustic-2 {
+  bottom: 20vh; left: 5vw;
+  background: radial-gradient(circle, rgba(255, 220, 170, 0.45), transparent 60%);
+  animation: caustic-shift 16s ease-in-out -4s infinite;
+}
+@keyframes caustic-shift {
+  0%,100% { transform: translate(0,0) scale(1); opacity: 0.9; }
+  50%      { transform: translate(30px,-20px) scale(1.15); opacity: 0.6; }
+}
+
+/* =================================================================
+   GLASS SYSTEM
+   ================================================================= */
+.glass {
+  position: relative;
+  background: var(--glass-2);
+  backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.04);
+  border-radius: var(--r-lg);
+  box-shadow:
+    inset 0 1px 0 var(--glass-inner),
+    inset 0 -1px 0 var(--glass-rim),
+    var(--shadow-soft),
+    var(--shadow-warm);
+  isolation: isolate;
+}
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg,
+    var(--glass-edge) 0%,
+    rgba(255,255,255,0.30) 40%,
+    var(--glass-edge-dim) 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+.glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(115deg,
+    transparent 30%,
+    rgba(255,255,255,0.18) 45%,
+    rgba(255,255,255,0.05) 55%,
+    transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+.glass > * { position: relative; z-index: 2; }
+
+.glass-heavy {
+  background: var(--glass-3) !important;
+  backdrop-filter: blur(60px) saturate(180%) brightness(1.06) !important;
+  -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.06) !important;
+}
+
+/* =================================================================
+   TYPOGRAPHY
+   ================================================================= */
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clay-500);
+  margin: 0 0 20px;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--ink-900);
+  margin: 0 0 28px;
+}
+
+h1 em, .h1 em, h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clay-500);
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  text-wrap: balance;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 0 0 12px;
+}
+
+p { color: var(--ink-700); margin: 0 0 16px; }
+.lead {
+  font-size: clamp(17px, 1.5vw, 20px);
+  color: var(--ink-700);
+  line-height: 1.65;
+}
+
+/* =================================================================
+   LAYOUT
+   ================================================================= */
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+}
+
+/* Each section has full padding — no collapsing */
+section { padding: var(--section) 0; position: relative; }
+
+/* =================================================================
+   BUTTONS
+   ================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 22px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .25s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--ink-900);
+  color: var(--cream-50);
+  box-shadow: 0 14px 30px -10px rgba(46, 44, 40, 0.35);
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.20) 50%, transparent 70%);
+  transition: transform .6s ease;
+  transform: translateX(-100%);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 40px -10px rgba(46, 44, 40, 0.45); }
+.btn-primary:hover::before { transform: translateX(100%); }
+.btn-ghost {
+  background: var(--glass-1);
+  backdrop-filter: blur(20px);
+  color: var(--ink-900);
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-inner);
+}
+.btn-ghost:hover { background: var(--glass-2); border-color: rgba(255,255,255,0.70); }
+
+/* Button for dark backgrounds */
+.btn-outline-light {
+  background: transparent;
+  color: var(--cream-50);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: none;
+}
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.40);
+  transform: translateY(-1px);
+}
+
+/* =================================================================
+   TAGS / PILLS
+   ================================================================= */
+.tag {
+  padding: 9px 16px;
+  border-radius: var(--r-pill);
+  background: var(--glass-1);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-inner);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-700);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tag::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sage-500);
+  box-shadow: 0 0 6px var(--sage-glow);
+  flex-shrink: 0;
+}
+
+/* =================================================================
+   FOCUS RING
+   ================================================================= */
+:focus-visible {
+  outline: 2px solid var(--sage-500);
+  outline-offset: 3px;
+}
+
+/* =================================================================
+   BORDER RADIUS UTILITIES
+   ================================================================= */
+.r-xl   { border-radius: var(--r-xl) !important; }
+.r-pill { border-radius: var(--r-pill) !important; }
+.r-lg   { border-radius: var(--r-lg) !important; }
+
+/* =================================================================
+   RESPONSIVE LAYOUT GRIDS
+   ================================================================= */
+.g-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+}
+.g-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+@media (max-width: 900px) {
+  .g-2 { grid-template-columns: 1fr; gap: 40px; }
+  .g-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .g-3 { grid-template-columns: 1fr; }
+}
+
+/* =================================================================
+   CARD PADDING HELPERS
+   ================================================================= */
+.pad-l  { padding: clamp(36px, 5vw, 72px); }
+.pad-xl { padding: clamp(48px, 6vw, 96px); }
+
+/* =================================================================
+   IMAGE FRAME
+   ================================================================= */
+.img-frame {
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+}
+
+/* =================================================================
+   SERVICE ICON GRID (replaces scrollable rail)
+   ================================================================= */
+.svc-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.svc-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 10px 18px;
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  color: var(--ink-700);
+  transition: all .25s ease;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.svc-icon-item:hover {
+  background: var(--glass-2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: var(--glass-edge);
+  box-shadow: inset 0 1px 0 var(--glass-inner), var(--shadow-warm);
+  color: var(--ink-900);
+  transform: translateY(-2px);
+}
+.svc-icon-wrap {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+}
+.svc-icon-wrap svg {
+  width: 100%; height: 100%;
+  stroke: var(--clay-500);
+  fill: none;
+}
+.svc-icon-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 10px;
+  color: var(--clay-500);
+  opacity: 0.65;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+.svc-icon-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: inherit;
+  text-align: center;
+  line-height: 1.3;
+}
+.svc-icon-cta {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-lg) !important;
+  font-size: 13px !important;
+  padding: 0 !important;
+}
+@media (max-width: 900px) {
+  .svc-icon-grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (max-width: 600px) {
+  .svc-icon-grid { grid-template-columns: repeat(3, 1fr); }
+  .svc-icon-cta  { grid-column: 1 / -1; border-radius: var(--r-pill) !important; padding: 14px 24px !important; }
+}
+
+/* =================================================================
+   SERVICE CARDS
+   ================================================================= */
+.svc-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  transition: all .35s cubic-bezier(.2, .7, .3, 1);
+}
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    inset 0 1px 0 var(--glass-inner),
+    inset 0 -1px 0 var(--glass-rim),
+    0 50px 100px -25px rgba(80, 60, 30, .30),
+    0 20px 40px -15px rgba(80, 60, 30, .20);
+}
+.svc-thumb {
+  aspect-ratio: 4/3;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  position: relative;
+  background: var(--cream-100);
+}
+.svc-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.015em;
+  color: var(--ink-900);
+  margin: 0;
+}
+.svc-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--clay-500);
+  line-height: 1;
+}
+.svc-read {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-900);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.svc-read::after { content: "→"; transition: transform .2s ease; }
+.svc-card:hover .svc-read::after { transform: translateX(3px); }
+
+/* =================================================================
+   LOGO STRIP (static)
+   ================================================================= */
+.logo-strip {
+  display: flex;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.logo-img {
+  height: clamp(18px, 2.4vw, 28px);
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  opacity: 0.60;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* =================================================================
+   MARQUEE — infinite horizontal scroll
+   ================================================================= */
+.marquee-outer {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%);
+  mask-image: linear-gradient(90deg,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%);
+}
+.marquee-track {
+  display: flex;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+  width: max-content;
+  animation: marquee-ltr 30s linear infinite;
+}
+.marquee-track-rtl {
+  animation-direction: reverse;
+}
+@keyframes marquee-ltr {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-rtl {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Hover on the outer wrapper slows the inner track to a near-stop */
+.marquee-hover-wrap:hover .marquee-track-inner {
+  animation-duration: 900s;
+}
+
+/* =================================================================
+   PROCESS CARDS
+   ================================================================= */
+.proc-card {
+  padding: clamp(28px, 3vw, 44px);
+  position: relative;
+  overflow: hidden;
+}
+.proc-bg-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(100px, 12vw, 160px);
+  color: var(--clay-500);
+  opacity: 0.06;
+  position: absolute;
+  top: -10px;
+  right: -8px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.proc-stage {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--clay-500);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.proc-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 2.5vw, 32px);
+  letter-spacing: -0.015em;
+  color: var(--ink-900);
+  margin: 0 0 16px;
+}
+
+/* =================================================================
+   PROCESS GRID — clean 2×2
+   ================================================================= */
+.proc-grid-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 700px) {
+  .proc-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* =================================================================
+   SECTION HEADER
+   ================================================================= */
+.sec-head {
+  max-width: 640px;
+  margin-bottom: 64px;
+}
+
+/* =================================================================
+   SECTION BAND — elevated layer effect
+   Each sec-band looks like a raised card with ambient light on top
+   and a shadow at the bottom.
+   ================================================================= */
+.sec-band {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.28) 0px,
+      rgba(237, 227, 209, 0.34) 72px,
+      rgba(237, 227, 209, 0.34) calc(100% - 72px),
+      rgba(180, 160, 130, 0.14) 100%
+    );
+}
+/* Bright top edge — ambient light hitting the raised surface */
+.sec-band::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.80) 12%,
+    rgba(255, 255, 255, 0.80) 88%,
+    transparent 100%);
+  box-shadow: 0 3px 18px rgba(80, 60, 30, 0.08);
+  pointer-events: none;
+  z-index: 2;
+}
+/* Shadow bottom edge */
+.sec-band::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(140, 120, 90, 0.45) 12%,
+    rgba(140, 120, 90, 0.45) 88%,
+    transparent 100%);
+  box-shadow: 0 -3px 14px rgba(80, 60, 30, 0.06);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =================================================================
+   DARK SECTION — high-contrast anchor
+   ================================================================= */
+.sec-dark {
+  background: var(--ink-900);
+  position: relative;
+}
+.sec-dark::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.14) 12%,
+    rgba(255, 255, 255, 0.14) 88%,
+    transparent 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 2;
+}
+.sec-dark::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.40) 12%,
+    rgba(0, 0, 0, 0.40) 88%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =================================================================
+   SERVICES FADE (home — first row only)
+   Uses CSS mask so page background + grain shows through naturally
+   ================================================================= */
+.svc-fade-wrap {
+  position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 90%);
+  mask-image: linear-gradient(to bottom, black 0%, black 35%, transparent 90%);
+}
+
+/* =================================================================
+   FEATURED CARD (7th service)
+   ================================================================= */
+.feat-card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 0;
+  align-items: stretch;
+  overflow: hidden;
+}
+.feat-card .feat-img {
+  position: relative;
+  min-height: 280px;
+}
+.feat-card .feat-body {
+  padding: clamp(32px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+@media (max-width: 700px) {
+  .feat-card { grid-template-columns: 1fr; }
+  .feat-card .feat-img { min-height: 200px; }
+}
+
+/* =================================================================
+   LOGOS GRID (registered / integrated stacked)
+   ================================================================= */
+.logos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* =================================================================
+   HERO — responsive image swap, overlays, content position
+   ================================================================= */
+.hero-img-desktop    { display: block; }
+.hero-img-mobile     { display: none; }
+.hero-overlay-left   { display: block; }
+.hero-overlay-right  { display: block; }
+.hero-overlay-top    { display: block; }
+
+/* Desktop bottom fade — tall gradual cream so Trusted By appears seamless */
+.hero-overlay-bottom {
+  height: 65%;
+  background: linear-gradient(to top, var(--cream-50) 0%, var(--cream-50) 28%, transparent 100%);
+}
+
+/* Trusted By — inside hero section, no margin needed */
+.trusted-by-inner {
+  padding-bottom: clamp(80px, 10vw, 140px);
+}
+
+@media (max-width: 767px) {
+  .hero-img-desktop    { display: none; }
+  .hero-img-mobile     { display: block; }
+  .hero-overlay-left   { display: none; }
+  .hero-overlay-right  { display: none; }
+  .hero-overlay-top    { display: none; }
+
+  .hero-wrap  { align-items: flex-end !important; }
+  .hero-inner {
+    padding-top: clamp(100px, 16vh, 150px) !important;
+    padding-bottom: clamp(64px, 9vh, 100px) !important;
+    max-width: 100% !important;
+  }
+
+  /* On mobile give trusted-by its own background so image doesn't bleed through */
+  .trusted-by-inner {
+    background: var(--cream-50);
+    padding-top: clamp(32px, 5vw, 56px);
+    padding-bottom: clamp(40px, 5vw, 64px);
+  }
 }
