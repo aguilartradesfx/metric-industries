@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/content/site";
 
 const quickLinks = [
@@ -10,6 +13,9 @@ const quickLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const ctaHref = pathname === "/contact" ? "/new-customer" : "/contact";
+
   return (
     <footer
       style={{
@@ -40,7 +46,7 @@ export default function Footer() {
         >
           Ready? <em style={{ color: "var(--clay-500)" }}>Reach out today.</em>
         </p>
-        <Link href="/contact" className="btn btn-primary" style={{ fontSize: 16, padding: "16px 36px" }}>
+        <Link href={ctaHref} className="btn btn-primary" style={{ fontSize: 16, padding: "16px 36px" }}>
           Create work order →
         </Link>
       </div>
