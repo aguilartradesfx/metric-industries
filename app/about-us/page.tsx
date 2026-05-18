@@ -6,11 +6,11 @@ import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "15 years of precision property turnover in the Houston metro area.",
+  description: "15 years of precision property turnover — one reliable partner for every trade, every unit, every time.",
 };
 
 const whyItems = [
-  { title: "15 Years Experience", desc: "Over a decade and a half serving Houston's multifamily property managers." },
+  { title: "15 Years Experience", desc: "Over a decade and a half serving multifamily property managers across the US." },
   { title: "Licensed & Insured", desc: "Full coverage so your properties and residents are always protected." },
   { title: "Commitment to Excellence", desc: "Every unit delivered to a standard we're proud to put our name on." },
   { title: "Paperless Transactions", desc: "Digital estimates, invoices, and reports — no paper, no chasing." },
@@ -34,7 +34,7 @@ export default function AboutPage() {
             Precision, speed, and accountability on <em>every</em> turn.
           </h1>
           <p className="lead" style={{ maxWidth: 580, marginBottom: 40 }}>
-            Houston&apos;s go-to partner for apartment unit turnover — from same-day walkthroughs
+            The trusted partner for apartment unit turnover — from same-day walkthroughs
             to full make-ready services, all under one roof.
           </p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -57,7 +57,7 @@ export default function AboutPage() {
         <div className="wrap" style={{ position: "relative", zIndex: 1, padding: "clamp(64px,8vw,112px) var(--gutter)" }}>
           <p className="eyebrow" style={{ color: "rgba(215,200,175,0.8)" }}>Who we are</p>
           <h2 style={{ color: "var(--cream-50)", maxWidth: 480, marginBottom: 0 }}>
-            15 years making Houston units <em style={{ color: "var(--sand-300)" }}>move-in ready.</em>
+            15 years making units <em style={{ color: "var(--sand-300)" }}>move-in ready.</em>
           </h2>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 At Metric Industries, we understand the pivotal moment when a resident moves out
                 and the urgency to swiftly transform a space into an inviting home for the next tenant.
                 With precision and expertise, we specialize in seamlessly coordinating schedules to
-                assess and revitalize apartment units in Houston.
+                assess and revitalize apartment units nationwide.
               </p>
               <p>
                 Founded on the belief that property managers deserve a single, reliable partner for

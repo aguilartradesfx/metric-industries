@@ -21,16 +21,28 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Metric Industries — Property Turnover Services | Houston, TX",
+    default: "Metric Industries — Property Turnover Services",
     template: "%s | Metric Industries",
   },
   description:
-    "Houston's go-to partner for turning apartment units around — fast, clean, and ready for the next tenant. Painting, resurfacing, make-ready, maid service, carpet cleaning, A/C duct, and water extraction.",
+    "The trusted partner for turning apartment units around — fast, clean, and ready for the next tenant. Painting, resurfacing, make-ready, maid service, carpet cleaning, A/C duct, and water extraction.",
   metadataBase: new URL("https://metric.industries"),
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Metric Industries",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Metric Industries — Property Turnover Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
   },
 };
 

@@ -141,7 +141,7 @@ export default function HomePage() {
               Built for the <em>moment</em> a resident moves out.
             </h1>
             <p className="hero-desc" style={{ fontSize: "clamp(15px,1.3vw,18px)", color: v("--ink-700"), lineHeight: 1.65, maxWidth: 420, marginBottom: 0 }}>
-              Houston&apos;s go-to partner for turning apartment units around — fast,
+              The trusted partner for turning apartment units around — fast,
               clean, and ready for the next tenant.
             </p>
             <div className="hero-cta" style={{ display: "flex", gap: 12, marginTop: 32, flexWrap: "wrap" }}>
@@ -207,7 +207,7 @@ export default function HomePage() {
                 moves out and the urgency to swiftly transform a space into an inviting
                 home for the next tenant. With precision and expertise, we specialize in
                 seamlessly coordinating schedules to assess and revitalize apartment units
-                in Houston.
+                across the country.
               </p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
                 {whyTags.map((t) => <span key={t} className="tag">{t}</span>)}
@@ -413,7 +413,7 @@ export default function HomePage() {
       <section>
         <div className="wrap">
           <GlassCard heavy className="r-xl" style={{ padding: "clamp(48px,7vw,88px)", textAlign: "center" }}>
-            <p className="eyebrow" style={{ marginBottom: 16 }}>Trusted by Houston</p>
+            <p className="eyebrow" style={{ marginBottom: 16 }}>Trusted nationwide</p>
             <h2 style={{ marginBottom: 36 }}>Not convinced yet? Take a closer look.</h2>
             <div style={{ display: "flex", gap: "clamp(24px,4vw,56px)", alignItems: "center", justifyContent: "center", flexWrap: "wrap", marginBottom: 44 }}>
               {["/logos/trusted/asset-1.svg", "/logos/trusted/asset-2-2.svg", "/logos/trusted/asset-7.svg", "/logos/trusted/ke2epm.svg"].map((src) => (

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Metric Industries",
   tagline: "Multiple solutions · one call",
-  description: "Houston's go-to partner for turning apartment units around.",
+  description: "The trusted partner for turning apartment units around.",
   contact: {
     phone: "832 602 7003",
     phoneHref: "tel:8326027003",

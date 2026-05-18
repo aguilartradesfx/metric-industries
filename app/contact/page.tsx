@@ -5,7 +5,7 @@ import { siteConfig } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Submit a work order or call Metric Industries — Houston's trusted property turnover partner.",
+  description: "Submit a work order or call Metric Industries — your trusted property turnover partner.",
 };
 
 export default function ContactPage() {
