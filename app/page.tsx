@@ -30,7 +30,7 @@ const railItems = [
 ];
 
 /* Logo sets — duplicated for seamless marquee loop */
-const trustedLogos     = ["/logos/trusted/asset-1.svg", "/logos/trusted/asset-1-2.svg", "/logos/trusted/asset-2.svg", "/logos/trusted/asset-2-2.svg", "/logos/trusted/asset-5.svg", "/logos/trusted/asset-7.svg", "/logos/trusted/ke2epm.svg"];
+const trustedLogos     = ["/logos/trusted/asset-1.svg", "/logos/trusted/asset-1-2.svg", "/logos/trusted/asset-2.svg", "/logos/trusted/asset-2-2.svg", "/logos/trusted/asset-5.svg", "/logos/trusted/asset-7.svg", "/logos/trusted/ke2epm.svg", "/logos/trusted/morgan.svg"];
 const registeredLogos  = ["/logos/registered/asset-1.svg", "/logos/registered/asset-11.svg", "/logos/registered/asset-2.svg", "/logos/registered/asset-33.svg", "/logos/registered/asset-4.svg", "/logos/registered/fsfsf.svg"];
 const integratedLogos  = ["/logos/integrated/asset-3.svg", "/logos/integrated/asset-4.svg", "/logos/integrated/thyj3y.tif.svg"];
 
@@ -416,7 +416,7 @@ export default function HomePage() {
             <p className="eyebrow" style={{ marginBottom: 16 }}>Trusted by Houston</p>
             <h2 style={{ marginBottom: 36 }}>Not convinced yet? Take a closer look.</h2>
             <div style={{ display: "flex", gap: "clamp(24px,4vw,56px)", alignItems: "center", justifyContent: "center", flexWrap: "wrap", marginBottom: 44 }}>
-              {["/logos/trusted/asset-1.svg", "/logos/trusted/asset-2.svg", "/logos/trusted/asset-5.svg", "/logos/trusted/ke2epm.svg"].map((src) => (
+              {["/logos/trusted/asset-1.svg", "/logos/trusted/asset-2-2.svg", "/logos/trusted/asset-7.svg", "/logos/trusted/ke2epm.svg"].map((src) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img key={src} src={src} alt="" className="logo-img" aria-hidden="true" />
               ))}
