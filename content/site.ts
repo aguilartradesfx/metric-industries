@@ -5,6 +5,8 @@ export const siteConfig = {
   contact: {
     phone: "832 602 7003",
     phoneHref: "tel:8326027003",
+    phone2: "832 666 9259",
+    phoneHref2: "tel:8326669259",
     email: "service@metric.industries",
     emailHref: "mailto:service@metric.industries",
     address: "2211 Rayford Rd Ste 111 #33, Spring, TX 77386",

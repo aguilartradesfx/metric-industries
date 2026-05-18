@@ -29,13 +29,19 @@ export default function ContactPage() {
 
             {/* Contact details */}
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              {/* Phone — two numbers */}
+              <GlassCard style={{ padding: "24px 28px" }}>
+                <p className="eyebrow" style={{ marginBottom: 8 }}>Phone</p>
+                <a href={siteConfig.contact.phoneHref} style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,2vw,26px)", fontWeight: 500, color: "var(--ink-900)", textDecoration: "none", letterSpacing: "-0.01em", display: "block" }}>
+                  {siteConfig.contact.phone}
+                </a>
+                <a href={siteConfig.contact.phoneHref2} style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,2vw,26px)", fontWeight: 500, color: "var(--ink-900)", textDecoration: "none", letterSpacing: "-0.01em", display: "block", marginBottom: 6 }}>
+                  {siteConfig.contact.phone2}
+                </a>
+                <p style={{ fontSize: 13, color: "var(--ink-500)", margin: 0 }}>Mon–Fri 8am–6pm · 24/7 emergencies</p>
+              </GlassCard>
+
               {[
-                {
-                  label: "Phone",
-                  value: siteConfig.contact.phone,
-                  href: siteConfig.contact.phoneHref,
-                  desc: "Mon–Fri 8am–6pm · 24/7 emergencies",
-                },
                 {
                   label: "Email",
                   value: siteConfig.contact.email,
@@ -45,26 +51,14 @@ export default function ContactPage() {
                 {
                   label: "Address",
                   value: siteConfig.contact.address,
-                  href: undefined,
+                  href: undefined as string | undefined,
                   desc: "Spring, TX — Houston Metro",
                 },
               ].map((item) => (
                 <GlassCard key={item.label} style={{ padding: "24px 28px" }}>
                   <p className="eyebrow" style={{ marginBottom: 8 }}>{item.label}</p>
                   {item.href ? (
-                    <a
-                      href={item.href}
-                      style={{
-                        fontFamily: "var(--font-display)",
-                        fontSize: "clamp(18px,2vw,26px)",
-                        fontWeight: 500,
-                        color: "var(--ink-900)",
-                        textDecoration: "none",
-                        letterSpacing: "-0.01em",
-                        display: "block",
-                        marginBottom: 6,
-                      }}
-                    >
+                    <a href={item.href} style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px,2vw,26px)", fontWeight: 500, color: "var(--ink-900)", textDecoration: "none", letterSpacing: "-0.01em", display: "block", marginBottom: 6 }}>
                       {item.value}
                     </a>
                   ) : (
