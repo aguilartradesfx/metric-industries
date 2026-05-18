@@ -67,7 +67,7 @@ export default function Footer() {
           {/* Brand col */}
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/metric-logo.svg" alt="Metric Industries" style={{ height: 44, width: "auto", display: "block", marginBottom: "16px" }} />
+            <img src="/metric-logo.png" alt="Metric Industries" style={{ height: 44, width: "auto", display: "block", marginBottom: "16px" }} />
             <p
               style={{
                 fontSize: "14px",
