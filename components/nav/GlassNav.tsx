@@ -44,7 +44,7 @@ export default function GlassNav() {
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none", flexShrink: 0, display: "flex", alignItems: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/metric-logo.svg" alt="Metric Industries" style={{ height: 30, width: "auto", display: "block" }} />
+          <img src="/metric-logo.png" alt="Metric Industries" style={{ height: 34, width: "auto", display: "block" }} />
         </Link>
 
         {/* Desktop nav links */}
